@@ -1,0 +1,172 @@
+<mxfile host="app.diagrams.net" type="device" version="24.7.17" agent="ОРИОН architecture package">
+  <diagram id="orion-c4-l2" name="C4 L2 — Контейнеры">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;ОРИОН — контейнеры (C4, уровень 2)&lt;/b&gt;&lt;br&gt;18 сервисов на .NET 10, база на сервис, единственная точка выхода наружу — integration-hub" style="text;html=1;align=left;verticalAlign=top;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="800" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bandEdge" value="ПЕРИМЕТР" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#666666;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="740" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="spaClient" value="&lt;b&gt;React SPA&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;клиентский контур&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="115" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="spaAdmin" value="&lt;b&gt;React SPA&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;админ-контур&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="115" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bffClient" value="&lt;b&gt;bff-client&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;агрегация API, сессии, CSRF&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bffAdmin" value="&lt;b&gt;bff-admin&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;агрегация API, rate limit&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="190" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edgeNote" value="Два BFF — две сетевые зоны и две модели доступа: клиент видит только свои организации, администратор — весь периметр. Логин через Keycloak по OIDC; бесшовный переход из ДБО ЮРЛ сверяется по ФИО + ИНН физлица + ИНН компании." style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="520" y="115" width="245" height="125" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bandCore" value="БИЗНЕС-СЕРВИСЫ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#666666;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="290" width="740" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="iam" value="&lt;b&gt;iam-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;пользователи, роли, права, привязка к организациям, SSO-переход, профиль&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="325" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="org" value="&lt;b&gt;org-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;организации, холдинги, договоры, продукты, сканы&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="325" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="emp" value="&lt;b&gt;employee-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;сотрудники, ПДн, смена ФИО, увольнение, архив, счета и карты&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="325" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cards" value="&lt;b&gt;cards-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;выпуск, автоперевыпуск, выдача карт, построчные статусы заявок&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="415" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pay" value="&lt;b&gt;payment-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;платёжные поручения, кешбэк, разовые выплаты · Idempotency-Key&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="415" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="tre" value="&lt;b&gt;treasury-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;суточный цикл корпоративных карт: пополнение и списание остатка&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="415" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="slip" value="&lt;b&gt;payslip-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;расчётные листы, генерация HTML, архивация, публичный API для ЛК&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="505" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wf" value="&lt;b&gt;workflow-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;конфигурируемые статусные модели, маршруты согласования, задачи и возврат на доработку&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="300" y="505" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="coreNote" value="Правила: база на сервис, кросс-БД запросы запрещены правами; у каждой сущности ровно один сервис-мастер, остальные держат проекции и обновляют их по событиям Kafka." style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="540" y="505" width="225" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bandPlat" value="ПЛАТФОРМЕННЫЕ СЕРВИСЫ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#666666;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="740" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="file" value="&lt;b&gt;file-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;+ fileproc-worker&lt;br&gt;шаблоны форматов, валидация, журнал импорта&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="675" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="doc" value="&lt;b&gt;document-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;редактор шаблонов, пакеты документов, задания на печать&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="245" y="675" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ref" value="&lt;b&gt;reference-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;справочники, календарь рабочих дней&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="675" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="content" value="&lt;b&gt;content-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;полезные ресурсы, ссылки, оповещения клиентам&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="615" y="675" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="notif" value="&lt;b&gt;notification-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;уведомления в интерфейсе и email, шаблоны доставки&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="770" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="aud" value="&lt;b&gt;audit-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;реестр событий, неизменяемый журнал, поиск и выгрузка&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="245" y="770" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sched" value="&lt;b&gt;scheduler-svc&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;казначейский цикл, синхронизации, автоперевыпуск, ретеншн&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="430" y="770" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="platNote" value="Календарь рабочих дней — единственный источник правды о том, работает ли сервис сегодня; планировщик сверяется с ним перед каждым запуском." style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="615" y="770" width="150" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bandIntegr" value="ИНТЕГРАЦИЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#666666;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="290" width="260" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="hub" value="&lt;b&gt;integration-hub&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;Единственная точка выхода наружу.&lt;br&gt;&lt;br&gt;Адаптеры: WAY4 · EQ · CRM · Factory · Карт Перс · ДБО ЮРЛ&lt;br&gt;&lt;br&gt;retry с backoff · circuit breaker на адаптер · журнал вызовов · идемпотентность команд&lt;br&gt;&lt;br&gt;Смена протокола внешней системы меняет один адаптер, а не бизнес-сервисы.&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="325" width="220" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="mail" value="&lt;b&gt;mail-worker&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;IMAP-ящик: письма от ДБО ЮРЛ с файлом по картам и суммой для зачисления&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="660" width="220" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bandExt" value="ВНЕШНИЕ СИСТЕМЫ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#666666;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="290" width="230" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="ext" value="&lt;b&gt;WAY4&lt;/b&gt; — переводы&lt;br&gt;&lt;b&gt;EQ&lt;/b&gt; — счета юрлиц&lt;br&gt;&lt;b&gt;CRM&lt;/b&gt; — мастер-данные физлиц&lt;br&gt;&lt;b&gt;Factory&lt;/b&gt; — заказ выпуска карт&lt;br&gt;&lt;b&gt;Карт Перс&lt;/b&gt; — пластик&lt;br&gt;&lt;b&gt;ДБО ЮРЛ&lt;/b&gt; — поручения, SSO&lt;br&gt;&lt;b&gt;SMTP / IMAP&lt;/b&gt; — почта&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;Каждый вызов — с ключом идемпотентности и записью в журнал интеграций.&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="325" width="190" height="290" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bandInfra" value="ИНФРАСТРУКТУРА" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;fontSize=11;fontStyle=1;fontColor=#666666;letterSpacing=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="900" width="1310" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="pg" value="&lt;b&gt;PostgreSQL&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;база на сервис, RLS по organization_id&lt;/font&gt;" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="60" y="935" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="&lt;b&gt;Redis&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;кеш, локи, идемпотентность&lt;/font&gt;" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="270" y="935" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="kafka" value="&lt;b&gt;Kafka&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;доменные события, 12 партиций, DLQ&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="480" y="935" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rmq" value="&lt;b&gt;RabbitMQ&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;команды воркерам, DLQ&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="690" y="935" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="minio" value="&lt;b&gt;MinIO (S3)&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;реестры, сканы, документы, расчётные листы&lt;/font&gt;" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="935" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="kc" value="&lt;b&gt;Keycloak&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;OIDC, федерация с AD&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;verticalAlign=top;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="935" width="190" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="l1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#333333;" edge="1" parent="1" source="spaClient" target="bffClient">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#333333;" edge="1" parent="1" source="spaAdmin" target="bffAdmin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.15;entryY=0;entryDx=0;entryDy=0;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="bffClient" target="bandCore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.45;entryY=0;entryDx=0;entryDy=0;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="bffAdmin" target="bandCore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l5" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.85;exitY=1;exitDx=0;exitDy=0;entryX=0.85;entryY=0;entryDx=0;entryDy=0;strokeColor=#333333;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="bandCore" target="bandPlat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l6" value="RabbitMQ — команды" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.2;entryDx=0;entryDy=0;strokeColor=#6C8EBF;fontColor=#28527A;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="bandCore" target="hub">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" value="Kafka — колбэки статусов" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=1;entryY=0.6;entryDx=0;entryDy=0;strokeColor=#6C8EBF;fontColor=#28527A;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="hub" target="bandCore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l8" value="REST · mTLS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;strokeColor=#D79B00;fontColor=#7F4F00;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="hub" target="ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l9" value="IMAP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.9;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#D79B00;fontColor=#7F4F00;labelBackgroundColor=#FFFFFF;fontSize=10;" edge="1" parent="1" source="ext" target="mail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=0.15;exitY=1;exitDx=0;exitDy=0;entryX=0.1;entryY=0;entryDx=0;entryDy=0;strokeColor=#999999;" edge="1" parent="1" source="bandPlat" target="bandInfra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.35;entryY=0;entryDx=0;entryDy=0;strokeColor=#999999;" edge="1" parent="1" source="bandPlat" target="bandInfra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.65;entryY=0;entryDx=0;entryDy=0;strokeColor=#999999;" edge="1" parent="1" source="bandIntegr" target="bandInfra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend2" value="&lt;b&gt;Легенда&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#7F4F00&quot;&gt;оранжевый&lt;/font&gt; — денежные сервисы и путь наружу: обязательные Idempotency-Key, журнал распоряжений, запрет каскадных удалений&lt;br&gt;&lt;font color=&quot;#3A6B2C&quot;&gt;зелёный&lt;/font&gt; — согласование и аутентификация&lt;br&gt;сплошная линия — синхронный REST · синяя — брокеры · пунктир — обращение к инфраструктуре&lt;br&gt;&lt;br&gt;На этапе 1 сервисы собираются в 9 деплой-групп (см. 02-containers.md, п. 2.5); границы модулей проведены сразу по целевым сервисам." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B3B3B3;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="660" width="230" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
